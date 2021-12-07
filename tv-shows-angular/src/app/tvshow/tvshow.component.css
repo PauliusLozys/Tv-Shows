@@ -1,0 +1,100 @@
+/* HeroesComponent's private CSS styles */
+/* .shows {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+  }
+  .shows li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    padding: .3em 0;
+    height: 1.6em;
+    border-radius: 4px;
+  }
+  .shows li:hover {
+    color: #2c3a41;
+    background-color: #e6e6e6;
+    left: .1em;
+  }
+  .shows li.selected {
+    background-color: black;
+    color: white;
+  }
+  .shows li.selected:hover {
+    background-color: #505050;
+    color: white;
+  }
+  .shows li.selected:active {
+    background-color: black;
+    color: white;
+  }
+  .shows .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color:#405061;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  input {
+    padding: .5rem;
+  } */
+
+  table {
+    width: 100%;
+  }
+  
+  tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .example-element-row td {
+    border-bottom-width: 0;
+  }
+  
+  .example-element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+  }
+  
+  .example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+  }
+  
+  .example-element-description {
+    padding: 16px;
+  }
+  
+  .example-element-description-attribution {
+    opacity: 0.5;
+  }
