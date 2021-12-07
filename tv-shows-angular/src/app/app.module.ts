@@ -10,13 +10,17 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
-
+import { AppRoutingModule } from './app-routing.module';
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatButtonModule} from '@angular/material/button';
+import { MainpageComponent } from './mainpage/mainpage.component'; 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TvshowComponent
+    TvshowComponent,
+    MainpageComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,10 @@ import { MatCardModule } from '@angular/material/card';
     BrowserAnimationsModule,
     MatTableModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

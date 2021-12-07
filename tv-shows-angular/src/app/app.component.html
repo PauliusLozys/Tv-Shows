@@ -1,2 +1,14 @@
-<h1>{{title}}</h1>
-<app-tvshow></app-tvshow>
+<mat-card style="width: auto">
+
+    <mat-toolbar color="primary" class="navbar">
+        <div>TV Shows</div>
+        <div>
+            <button mat-raised-button color="accent" routerLink="" routerLinkActive="active"><b>Home</b></button>
+            <button mat-raised-button color="accent" routerLink="/shows" routerLinkActive="active"><b>Show list</b></button>
+        </div>
+    </mat-toolbar>
+    
+    
+    <!-- The routed views render in the <router-outlet>-->
+    <router-outlet></router-outlet>
+</mat-card>

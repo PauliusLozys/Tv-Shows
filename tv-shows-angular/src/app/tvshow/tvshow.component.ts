@@ -28,6 +28,8 @@ export class TvshowComponent implements OnInit {
 
   ngOnInit(): void {
     this.showShows();
+    if(this.shows.length == 0) // set mock if server is off
+      this.shows = SHOWS;
   }
 
   show?: Show;
