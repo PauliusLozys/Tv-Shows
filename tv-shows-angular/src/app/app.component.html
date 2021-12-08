@@ -1,10 +1,19 @@
 <mat-card style="width: auto">
 
     <mat-toolbar color="primary" class="navbar">
-        <div>TV Shows</div>
         <div>
-            <button mat-raised-button color="accent" routerLink="" routerLinkActive="active"><b>Home</b></button>
-            <button mat-raised-button color="accent" routerLink="/shows" routerLinkActive="active"><b>Show list</b></button>
+            <mat-icon aria-hidden="false">tv icon</mat-icon>  
+            <b> TV Shows</b>
+        </div>
+        <div>
+            <button mat-raised-button color="accent" routerLink="" routerLinkActive="active">
+                <mat-icon aria-hidden="false">home</mat-icon>  
+                <b> Home</b>
+            </button>
+            <button mat-raised-button color="accent" routerLink="/shows" routerLinkActive="active">
+                <mat-icon aria-hidden="false">list</mat-icon>  
+                <b> Show list</b>
+            </button>
         </div>
     </mat-toolbar>
     

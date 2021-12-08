@@ -29,12 +29,12 @@ export class TvshowComponent implements OnInit {
     this.showShows();
   }
 
-  show?: Show;
   shows: Show[] = [];
   counter: number = 0;
 
   columnsToDisplay = ['id', 'name'];
   expandedElement?: Show;
+  resourceLoaded: Boolean = false;
 
   getShows(): Observable<Show[]> {
     return this.http.get<Show[]>("https://localhost:5001/api/shows");
@@ -42,7 +42,10 @@ export class TvshowComponent implements OnInit {
 
   showShows() {
     this.getShows()
-    .subscribe(data => this.shows = data)
+    .subscribe(data => {
+      this.shows = data;
+      this.resourceLoaded = true;
+    })
   }
 
   doSmt() {
@@ -50,7 +53,4 @@ export class TvshowComponent implements OnInit {
     if(!this.expandedElement)
       this.counter++;
   }
-
-
-
 }
