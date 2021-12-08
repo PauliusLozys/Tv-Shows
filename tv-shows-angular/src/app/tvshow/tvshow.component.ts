@@ -4,8 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
-import { Show } from '../show';
-import { SHOWS } from '../mock-shows';
+import { Show } from '../interfaces/show';
 
 
 @Component({
@@ -28,17 +27,11 @@ export class TvshowComponent implements OnInit {
 
   ngOnInit(): void {
     this.showShows();
-    if(this.shows.length == 0) // set mock if server is off
-      this.shows = SHOWS;
   }
 
   show?: Show;
   shows: Show[] = [];
   counter: number = 0;
-  // selectedShow?: Show;
-  // onSelect(sh: Show): void {
-  //   this.selectedShow = sh;
-  // }
 
   columnsToDisplay = ['id', 'name'];
   expandedElement?: Show;
