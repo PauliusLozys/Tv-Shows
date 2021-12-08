@@ -18,7 +18,7 @@ namespace showsBackend.Data
             };
         }
 
-        public IEnumerable<Show> GetShows()
+        public IEnumerable<Show> GetAllShows()
         {
             return new List<Show>
             {

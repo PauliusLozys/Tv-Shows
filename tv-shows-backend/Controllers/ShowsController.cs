@@ -24,7 +24,7 @@ namespace showsBackend.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Show>> GetAllShows()
         {
-            var shows = _repository.GetShows();
+            var shows = _repository.GetAllShows();
 
             return Ok(shows);
         }
