@@ -12,8 +12,6 @@ import { catchError, retry } from 'rxjs/operators';
 export class ShowService {
 
   constructor(private http: HttpClient) { }
-
-
   
   getShows(): Observable<Show[]> {
     return this.http.get<Show[]>("https://localhost:5001/api/shows");

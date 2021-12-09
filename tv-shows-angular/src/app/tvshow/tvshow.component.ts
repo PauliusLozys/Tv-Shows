@@ -47,7 +47,7 @@ export class TvshowComponent implements OnInit {
   }
 
   openCreateDialog() {
-      let createForm = this.createDialog.open(CreateShowComponent);
+      const createForm = this.createDialog.open(CreateShowComponent);
       createForm.afterClosed().subscribe(() => this.showShows());
   }
 

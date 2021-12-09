@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ShowService } from '../show.service';
 import { Show } from '../interfaces/show';
 
@@ -16,15 +16,24 @@ export class CreateShowComponent implements OnInit {
   }
 
   showForm = this.formBuilder.group({
-    name: '',
-    description: ''
+    name: new FormControl([], [Validators.required, Validators.maxLength(50)]),
+    description: new FormControl([], Validators.required)
   });
 
   createShow() {
+    
 
-    this.showService.addShow(this.showForm.value)
-    .subscribe(show => {
-      console.warn('Show created', show);
-    });
+    if(this.showForm.valid) {
+
+      this.showService.addShow(this.showForm.value)
+      .subscribe(show => {
+        console.warn('Show created', show);
+      });
+    }
+
+    else {
+      console.log('Blogi Tv laidos duomenys :(');
+    }
+    
   }
 }
