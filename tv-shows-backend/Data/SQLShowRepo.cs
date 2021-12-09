@@ -19,6 +19,7 @@ namespace showsBackend.Data
             if (show is null)
                 throw new ArgumentNullException(nameof(show));
 
+            Console.WriteLine($"[{DateTime.Now}] Show created");
             context.Shows.Add(show);
         }
 
