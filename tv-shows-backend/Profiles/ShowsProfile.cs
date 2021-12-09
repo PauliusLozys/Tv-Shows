@@ -9,6 +9,7 @@ namespace showsBackend.Profiles
         public ShowsProfile()
         {
             CreateMap<Show, ShowReadDTO>();
+            CreateMap<ShowCreateDTO, Show>();
         }
     }
 }

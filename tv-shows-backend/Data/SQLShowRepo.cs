@@ -13,6 +13,15 @@ namespace showsBackend.Data
         {
             this.context = context;
         }
+
+        public void CreateShow(Show show)
+        {
+            if (show is null)
+                throw new ArgumentNullException(nameof(show));
+
+            context.Shows.Add(show);
+        }
+
         public IEnumerable<Show> GetAllShows()
         {
             Console.WriteLine($"[{DateTime.Now}] Sending show list");
@@ -23,6 +32,11 @@ namespace showsBackend.Data
         {
             Console.WriteLine($"[{DateTime.Now}] Sending a show with id {id}");
             return context.Shows.FirstOrDefault(x => x.Id == id);
+        }
+
+        public bool SaveChanges()
+        {
+            return context.SaveChanges() >= 0;
         }
     }
 }

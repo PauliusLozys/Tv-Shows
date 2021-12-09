@@ -33,7 +33,7 @@ namespace showsBackend.Controllers
             return Ok(_mapper.Map<IEnumerable<ShowReadDTO>>(shows));
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetShowById")]
         public ActionResult<ShowReadDTO> GetShowById(int id)
         {
             var show = _repository.GetShow(id);
@@ -41,6 +41,19 @@ namespace showsBackend.Controllers
                 return Ok(_mapper.Map<ShowReadDTO>(show));
 
             return NotFound(); // return 404
+        }
+
+        [HttpPost]
+        public ActionResult<ShowReadDTO> CreateShow(ShowCreateDTO showDTO)
+        {
+            var show = _mapper.Map<Show>(showDTO);
+
+            _repository.CreateShow(show);
+            _repository.SaveChanges();
+
+            var showReadDTO = _mapper.Map<ShowReadDTO>(show);
+
+            return CreatedAtRoute(nameof(GetShowById), new { Id = showReadDTO.Id }, showReadDTO);
         }
     }
 }
