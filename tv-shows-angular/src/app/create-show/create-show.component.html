@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Create TV show</h1>
+<div mat-dialog-content>
+
+   <form [formGroup]="showForm" (ngSubmit)="createShow()" class="example-form">
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label appearance="standard">Name</mat-label>
+            <input matInput id="name" type="text" formControlName="name" placeholder="Show name">
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput type="text" formControlName="description" placeholder="Show description"></textarea>
+        </mat-form-field>
+
+        <button mat-raised-button type="submit" mat-dialog-close>Create</button>
+        <button mat-raised-button mat-dialog-close>Close</button>
+   </form>
+
+</div>

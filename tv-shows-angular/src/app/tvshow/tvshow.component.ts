@@ -1,11 +1,12 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+
 
 import { Show } from '../interfaces/show';
 import { ShowService } from '../show.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateShowComponent } from '../create-show/create-show.component';
 
 
 @Component({
@@ -24,7 +25,7 @@ import { ShowService } from '../show.service';
 @Injectable()
 export class TvshowComponent implements OnInit {
 
-  constructor(private showService: ShowService ) { }
+  constructor(private showService: ShowService, private createDialog: MatDialog ) { }
 
   ngOnInit(): void {
     this.showShows();
@@ -43,6 +44,11 @@ export class TvshowComponent implements OnInit {
       this.shows = data;
       this.resourceLoaded = true;
     })
+  }
+
+  openCreateDialog() {
+      let createForm = this.createDialog.open(CreateShowComponent);
+      createForm.afterClosed().subscribe(() => this.showShows());
   }
 
   doSmt() {

@@ -2,8 +2,9 @@
 <mat-card >
     <mat-card-title *ngIf="resourceLoaded">TV show list</mat-card-title>
     
-    <div *ngIf="resourceLoaded" class="d-flex justify-content-center"> 
-            <table mat-table
+    <div *ngIf="resourceLoaded"> 
+        <button mat-raised-button (click)='openCreateDialog()' >Create Show</button>
+        <table mat-table
             [dataSource]="shows" multiTemplateDataRows
             class="mat-elevation-z8">
 
