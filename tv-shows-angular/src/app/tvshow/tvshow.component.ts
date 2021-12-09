@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
 import { Show } from '../interfaces/show';
+import { ShowService } from '../show.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ import { Show } from '../interfaces/show';
 @Injectable()
 export class TvshowComponent implements OnInit {
 
-  constructor(private http: HttpClient ) { }
+  constructor(private showService: ShowService ) { }
 
   ngOnInit(): void {
     this.showShows();
@@ -36,12 +37,8 @@ export class TvshowComponent implements OnInit {
   expandedElement?: Show;
   resourceLoaded: Boolean = false;
 
-  getShows(): Observable<Show[]> {
-    return this.http.get<Show[]>("https://localhost:5001/api/shows");
-  }
-
-  showShows() {
-    this.getShows()
+  showShows(): void {
+    this.showService.getShows()
     .subscribe(data => {
       this.shows = data;
       this.resourceLoaded = true;
