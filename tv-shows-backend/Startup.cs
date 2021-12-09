@@ -32,13 +32,9 @@ namespace showsBackend
                 options.UseSqlServer(Configuration.GetConnectionString("WebApiDatabase")));
 
             services.AddControllers();
-
+            services.AddCors();
             //services.AddScoped<IShowRepo, MockShowRepo>();
             services.AddScoped<IShowRepo, SQLShowRepo>();
-            services.AddCors(options =>
-            {
-                options.AddPolicy("MyCordsPolicy", builder => builder.WithOrigins("*"));
-            });
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
@@ -60,7 +56,10 @@ namespace showsBackend
 
             app.UseAuthorization();
 
-            app.UseCors("MyCordsPolicy");
+            app.UseCors(x => x
+             .AllowAnyOrigin()
+             .AllowAnyMethod()
+             .AllowAnyHeader());
 
             app.UseEndpoints(endpoints =>
             {

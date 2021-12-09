@@ -13,7 +13,6 @@ namespace showsBackend.Controllers
 {
     [Route("api/shows")]
     [ApiController]
-    [EnableCors("MyCordsPolicy")]
     public class ShowsController : ControllerBase
     {
         private readonly IShowRepo _repository;
