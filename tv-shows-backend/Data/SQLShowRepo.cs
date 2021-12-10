@@ -50,5 +50,10 @@ namespace showsBackend.Data
         {
             return context.SaveChanges() >= 0;
         }
+
+        public void UpdateShow(Show show)
+        {
+            Console.WriteLine($"[{DateTime.Now}] Updating a show with id {show.Id}");
+        }
     }
 }

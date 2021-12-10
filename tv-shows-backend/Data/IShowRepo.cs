@@ -10,6 +10,7 @@ namespace showsBackend.Data
         IEnumerable<Show> GetAllShows();
         Show GetShow(int id);
         void CreateShow(Show show);
+        void UpdateShow(Show show);
         void DeleteShow(Show show);
     }
 }

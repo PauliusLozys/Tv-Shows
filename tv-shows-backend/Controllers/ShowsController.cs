@@ -55,6 +55,22 @@ namespace showsBackend.Controllers
             return CreatedAtRoute(nameof(GetShowById), new { Id = showReadDTO.Id }, showReadDTO);
         }
 
+        [HttpPut("{id}")]
+        public ActionResult UpdateShow(int id, ShowUpdateDTO show)
+        {
+            var showFromRepo = _repository.GetShow(id);
+            if (showFromRepo is null)
+                return NotFound();
+
+            _mapper.Map(show, showFromRepo);
+
+            _repository.UpdateShow(showFromRepo);
+
+            _repository.SaveChanges();
+
+            return NoContent();
+        }
+
         [HttpDelete("{id}")]
         public ActionResult DeleteCommand(int id)
         {
@@ -67,5 +83,7 @@ namespace showsBackend.Controllers
             _repository.SaveChanges();
             return NoContent();
         }
+
+
     }
 }
