@@ -23,6 +23,17 @@ namespace showsBackend.Data
             context.Shows.Add(show);
         }
 
+        public void DeleteShow(Show show)
+        {
+            if (show == null)
+            {
+                throw new ArgumentNullException(nameof(show));
+            }
+
+            Console.WriteLine($"[{DateTime.Now}] Show deleted {show.Id}");
+            context.Remove(show);
+        }
+
         public IEnumerable<Show> GetAllShows()
         {
             Console.WriteLine($"[{DateTime.Now}] Sending show list");

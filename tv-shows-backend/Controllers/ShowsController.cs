@@ -54,5 +54,18 @@ namespace showsBackend.Controllers
 
             return CreatedAtRoute(nameof(GetShowById), new { Id = showReadDTO.Id }, showReadDTO);
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult DeleteCommand(int id)
+        {
+            var show = _repository.GetShow(id);
+            if (show == null)
+            {
+                return NotFound();
+            }
+            _repository.DeleteShow(show);
+            _repository.SaveChanges();
+            return NoContent();
+        }
     }
 }
