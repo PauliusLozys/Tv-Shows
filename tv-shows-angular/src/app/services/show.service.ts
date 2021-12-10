@@ -13,16 +13,23 @@ export class ShowService {
 
   constructor(private http: HttpClient) { }
   
+  serverUrl = "https://localhost:5001/api/shows";
+
+  getShowByID(id: number) {
+    const url = `${this.serverUrl}/${id}`;
+    return this.http.get<Show>(url);
+  }
+
   getShows(): Observable<Show[]> {
-    return this.http.get<Show[]>("https://localhost:5001/api/shows");
+    return this.http.get<Show[]>(this.serverUrl);
   }
 
   addShow(show: Show): Observable<Show> {
-    return this.http.post<Show>("https://localhost:5001/api/shows", show)
+    return this.http.post<Show>(this.serverUrl, show)
   }
 
   deleteShow(id: number): Observable<unknown> {
-    const url = `https://localhost:5001/api/shows/${id}`;
+    const url = `${this.serverUrl}/${id}`;
     return this.http.delete(url);
   }
 }
