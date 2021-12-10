@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { ShowService } from '../show.service';
-import { Show } from '../interfaces/show';
+import { ShowService } from '../services/show.service';
 
 @Component({
   selector: 'app-create-show',

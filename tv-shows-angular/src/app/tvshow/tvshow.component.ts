@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 
 import { Show } from '../interfaces/show';
-import { ShowService } from '../show.service';
+import { ShowService } from '../services/show.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateShowComponent } from '../create-show/create-show.component';
 
@@ -34,7 +34,7 @@ export class TvshowComponent implements OnInit {
   shows: Show[] = [];
   counter: number = 0;
 
-  columnsToDisplay = ['id', 'name'];
+  columnsToDisplay = ['id', 'name', 'actions'];
   expandedElement?: Show;
   resourceLoaded: Boolean = false;
 
@@ -49,6 +49,14 @@ export class TvshowComponent implements OnInit {
   openCreateDialog() {
       const createForm = this.createDialog.open(CreateShowComponent);
       createForm.afterClosed().subscribe(() => this.showShows());
+  }
+
+  deleteShow(id: number) {
+    this.showService.deleteShow(id)
+    .subscribe(() =>{
+      this.showShows();
+    });
+
   }
 
   doSmt() {
