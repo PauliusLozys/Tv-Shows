@@ -51,6 +51,19 @@ export class TvshowComponent implements OnInit {
       createForm.afterClosed().subscribe(() => this.showShows());
   }
 
+  openEditDialog(id: number){
+
+    this.showService.getShowByID(id)
+    .subscribe(show => {
+      const editForm = this.createDialog.open(CreateShowComponent, {
+        data: show,
+      });
+
+      editForm.afterClosed().subscribe(() => this.showShows()); 
+    });
+
+  }
+
   deleteShow(id: number) {
     this.showService.deleteShow(id)
     .subscribe(() =>{

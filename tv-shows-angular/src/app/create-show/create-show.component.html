@@ -1,4 +1,5 @@
-<h1 mat-dialog-title>Create TV show</h1>
+<h1 mat-dialog-title *ngIf="!isEditForm">Create TV show</h1>
+<h1 mat-dialog-title *ngIf="isEditForm" >Update TV show</h1>
 <div mat-dialog-content>
 
    <form [formGroup]="showForm" class="example-form">
@@ -16,6 +17,7 @@
 
 </div>
 <mat-dialog-actions>
-    <button mat-raised-button mat-dialog-close [disabled]="!showForm.valid" (click)="createShow()">Create</button>
+    <button mat-raised-button mat-dialog-close *ngIf="!isEditForm" [disabled]="!showForm.valid" (click)="createShow()">Create</button>
+    <button mat-raised-button mat-dialog-close *ngIf="isEditForm"  [disabled]="!showForm.valid" (click)="updateShow()">Update</button>
     <button mat-raised-button mat-dialog-close>Close</button>
 </mat-dialog-actions>

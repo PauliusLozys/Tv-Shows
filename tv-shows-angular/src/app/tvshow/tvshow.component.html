@@ -19,9 +19,8 @@
 
             <div *ngIf="column === 'actions'">
                 <td mat-cell *matCellDef="let element"> 
-                    <span class="table-edit">
+                    <button mat-raised-button (click)="openEditDialog(element['id'])">Edit </button>
                     <button mat-raised-button (click)="deleteShow(element['id'])">Delete </button>
-                    </span> 
                 </td>
             </div>
         </ng-container>

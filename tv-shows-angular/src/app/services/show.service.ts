@@ -28,6 +28,11 @@ export class ShowService {
     return this.http.post<Show>(this.serverUrl, show)
   }
 
+  updateShow(id: number, show: Show) {
+    const url = `${this.serverUrl}/${id}`;
+    return this.http.put(url, show);
+  }
+
   deleteShow(id: number): Observable<unknown> {
     const url = `${this.serverUrl}/${id}`;
     return this.http.delete(url);
