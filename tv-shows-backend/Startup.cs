@@ -29,7 +29,10 @@ namespace showsBackend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TvShowContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("WebApiDatabase")));
+                options.UseMySql(
+                    Configuration.GetConnectionString("WebApiDatabase"), 
+                    new MariaDbServerVersion(new Version(10,7,3)))
+                );
 
             services.AddControllers();
             services.AddCors();
